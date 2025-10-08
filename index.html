@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneo Robo-Striker By IEEE RAS - FIEE UV</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración de Tailwind para usar el color naranja y azul -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'robo-blue': '#2563EB', // Azul vibrante (del logo)
+                        'robo-orange': '#F97316', // Naranja primario (del logo y fondo)
+                        'robo-dark': '#0F172A', // Fondo oscuro (del logo y fondo)
+                        'uv-blue': '#1D4ED8', // Azul complementario para el fondo
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    keyframes: {
+                        // Animación de impulso para el botón principal
+                        glow: {
+                            '0%, 100%': { 'box-shadow': '0 0 10px #F97316, 0 0 20px #F97316' },
+                            '50%': { 'box-shadow': '0 0 5px #F97316, 0 0 10px rgba(249, 115, 22, 0.5)' },
+                        },
+                    },
+                    animation: {
+                        glow: 'glow 2s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados para el fondo dinámico basado en la imagen */
+        .dynamic-rocket-background {
+            background-color: #0F172A; /* Fondo oscuro */
+            /* Gradientes de esquinas para replicar el efecto de resplandor azul/naranja */
+            background-image: radial-gradient(circle at 100% 0%, #F97316 0%, transparent 40%),
+                              radial-gradient(circle at 0% 100%, #1D4ED8 0%, transparent 40%);
+            background-blend-mode: overlay;
+        }
+
+        /* Clase para mejorar el aspecto del contenedor principal */
+        .flyer-container {
+            border-width: 6px; /* Borde más grueso */
+            border-image: linear-gradient(to right, #F97316, #2563EB) 1; /* Borde de gradiente */
+        }
+    </style>
+</head>
+<body class="dynamic-rocket-background min-h-screen flex items-center justify-center p-4 font-sans">
+
+    <!-- Contenedor principal del Flyer -->
+    <div class="w-full max-w-lg bg-white bg-opacity-95 backdrop-blur-md shadow-2xl rounded-xl p-6 md:p-10 text-center transform transition-all hover:scale-[1.01] duration-300 border-b-8 border-robo-orange shadow-robo-dark/50">
+        
+        <!-- Título de la Facultad -->
+        <p class="text-xs md:text-sm font-medium text-gray-500 mb-2 uppercase">
+            FACULTAD DE INGENIERIA ELÉCTRICA Y ELECTRÓNICA UV
+        </p>
+
+        <!-- Contenedor del Logo de la Imagen Subida -->
+        <div class="mb-6 relative flex justify-center">
+            <!-- La imagen subida tiene texto integrado, por eso la centramos -->
+            <img src="logo_RoboStriker.png" 
+                 alt="Logo Robo-Striker - Fútbol Robot Estilo Rocket League" 
+                 class="mx-auto w-5/6 h-auto drop-shadow-lg" 
+                 onerror="this.src='https://placehold.co/400x300/F97316/0F172A?text=ROBOSTRIKER+F%C3%9ATBOL+ROBOT'; this.onerror=null;">
+        </div>
+
+        <!-- Título del Evento con énfasis -->
+        
+        <h1 class="text-3xl md:text-4xl font-extrabold text-robo-dark uppercase mt-4 mb-2">
+            <span class="text-robo-orange"> ROBO-STRIKER</span>
+        </h1>
+        <h2 class="text-xl md:text-2xl font-bold text-robo-blue uppercase mb-6 p-2 rounded-lg bg-robo-blue/10">
+            <span class="text-robo-dark"> PRIMERA EDICION </span>        </h2>
+        
+        <!-- Información Destacada / Objetivo -->
+        <p class="text-lg md:text-xl font-semibold text-gray-700 mb-4">
+            ¿ESTAS LISTO PARA COMPETIR?
+        </p>
+
+        <!-- Bloque de Detalles del Evento (Usando Grid para Responsividad) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8 text-white">
+            
+            <div class="bg-robo-blue p-2 rounded-lg shadow-md">
+                <p class="font-light text-xs">FECHA</p>
+                <p class="font-bold text-base">20 de Noviembre</p>
+            </div>
+            
+            <div class="bg-robo-blue p-2 rounded-lg shadow-md">
+                <p class="font-light text-xs">HORA</p>
+                <p class="font-bold text-base">15:00 hrs</p>
+            </div>
+
+            <div class="bg-robo-blue p-2 rounded-lg shadow-md">
+                <p class="font-light text-xs">LUGAR</p>
+                <p  class="font-bold text-base">Auditorio FIEE</p>
+                <a href="https://maps.app.goo.gl/a4yxKGScz5LxmPFF9" class="text-xs underline">Ver Mapa</a>
+            </div>
+            
+            <div class="bg-robo-orange p-2 rounded-lg shadow-md">
+                <p class="font-light text-xs">COSTO</p>
+                <p class="font-bold text-base">$50.00 MXN</p>
+            </div>
+        </div>
+
+        <!-- Botones de Enlace (Llamada a la Acción) -->
+        <div class="space-y-4 md:space-y-0 md:space-x-4">
+            <!-- El botón de registro usa la animación de brillo -->
+            <a href="https://forms.gle/8oYM6ZQUm4PUVf2HA" class="inline-block w-full md:w-auto px-8 py-3 text-lg font-bold text-white bg-robo-orange rounded-full shadow-lg shadow-robo-orange/70 hover:bg-robo-orange/90 transition duration-300 transform hover:scale-105 animate-glow">
+                ¡INSCRÍBETE AQUÍ!
+            </a>
+            <a href="#reglamento-link" class="inline-block w-full md:w-auto px-8 py-3 text-lg font-bold text-robo-dark bg-gray-200 rounded-full shadow-lg hover:bg-gray-300 transition duration-300 transform hover:scale-105">
+                Ver Reglamento
+            </a>
+        </div>
+
+        <!-- Categorías y Pie de página -->
+        <div class="mt-8 pt-4 border-t border-gray-200">
+            <p class="text-sm text-gray-600 font-semibold mb-1">
+                <span class="text-robo-blue">CATEGORÍAS:</span> Novicio  y Master
+            </p>
+            <p class="text-sm text-gray-500">
+                Organiza: IEEE Robotics & Automation Society (RAS) - FIEE UV
+            </p>
+            <p class="text-sm text-gray-500">
+                Y colaboradores
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>
